@@ -1,0 +1,12 @@
+<div>
+Login
+<form #meuForm="ngForm" >
+  
+  <input #campoUsuario="ngModel" class="form-control" [(ngModel)]="usuario.username" name="username" required/>
+  <!-- CRIAR INFORMACAO DE AVISO AO USUARIO -->
+  <div *ngIf="!campoUsuario.valid && (campoUsuario.dirty || campoUsuario.touched)"
+     class="alert alert-danger">ta errado!</div>
+  <input #senha [(ngModel)]="usuario.password" name="password" required/>
+  <input class="btn btn-primary"  [disabled]="!meuForm.valid"  type="submit" (click)="enviarFormulario();"/>
+</form>
+</div>
